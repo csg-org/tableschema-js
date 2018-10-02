@@ -2,7 +2,7 @@ const bind = require('lodash/bind')
 const isArray = require('lodash/isArray')
 const cloneDeep = require('lodash/cloneDeep')
 const upperFirst = require('lodash/upperFirst')
-const {TableSchemaError} = require('./errors')
+const { TableSchemaError } = require('./errors')
 const constraints = require('./constraints')
 const helpers = require('./helpers')
 const config = require('./config')
@@ -19,7 +19,7 @@ class Field {
    * Construct field
    * https://github.com/frictionlessdata/tableschema-js#field
    */
-  constructor(descriptor, {missingValues=config.DEFAULT_MISSING_VALUES}={}) {
+  constructor(descriptor, { missingValues = config.DEFAULT_MISSING_VALUES } = {}) {
 
     // Process descriptor
     descriptor = cloneDeep(descriptor)
@@ -85,7 +85,7 @@ class Field {
    * Cast value
    * https://github.com/frictionlessdata/tableschema-js#field
    */
-  castValue(value, {constraints=true}={}) {
+  castValue(value, { constraints = true } = {}) {
 
     // Null value
     if (this._missingValues.includes(value)) {
@@ -127,9 +127,9 @@ class Field {
    * Check if value can be cast
    * https://github.com/frictionlessdata/tableschema-js#field
    */
-  testValue(value, {constraints=true}={}) {
+  testValue(value, { constraints = true } = {}) {
     try {
-      this.castValue(value, {constraints})
+      this.castValue(value, { constraints })
     } catch (error) {
       return false
     }
@@ -159,14 +159,14 @@ class Field {
 
   _getCheckFunctions() {
     const checks = {}
-    const cast = bind(this.castValue, this, bind.placeholder, {constraints: false})
+    const cast = bind(this.castValue, this, bind.placeholder, { constraints: false })
     for (const [name, constraint] of Object.entries(this.constraints)) {
       let castConstraint = constraint
 
-      // Cast enum constraint
-      if (['enum'].includes(name)) {
-        castConstraint = constraint.map(cast)
-      }
+      //  Cast enum constraint
+      // if (['enum'].includes(name)) {
+      //  castConstraint = constraint.map(cast)
+      // }
 
       // Cast maximum/minimum constraint
       if (['maximum', 'minimum'].includes(name)) {
