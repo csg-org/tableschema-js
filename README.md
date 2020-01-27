@@ -651,6 +651,8 @@ try {
 
 The project follows the [Open Knowledge International coding standards](https://github.com/okfn/coding-standards). There are common commands to work with the project:
 
+> If on Windows, you must run `npm install -g win-node-env`
+
 ```bash
 $ npm install
 $ npm run test

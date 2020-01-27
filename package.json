@@ -1,6 +1,6 @@
 {
-  "name": "tableschema",
-  "version": "1.9.1",
+  "name": "@csg-org/tableschema",
+  "version": "1.9.3",
   "description": "A library for working with Table Schema in Javascript.",
   "license": "MIT",
   "main": "lib/index.js",
@@ -108,8 +108,9 @@
   "bugs": "https://github.com/frictionlessdata/tableschema-js/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frictionlessdata/tableschema-js.git"
+    "url": "https://github.com/csg-org/tableschema-js.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "data package",
     "table schema",
