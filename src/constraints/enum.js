@@ -9,7 +9,7 @@ function checkEnum(constraint, value) {
   if (!isArray(value)) {
     return (constraint.includes(value))
   } else {
-    return (constraint.some(o => value.indexOf(o) !== -1))
+    return (value.every(o => constraint.indexOf(o) !== -1))
   }
 }
 
